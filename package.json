@@ -20,9 +20,9 @@
 			"path": "Samples~/Epic Toon FX"
 		  },
 		{
-			"displayName": "Core Sample",
-			"description": "Sample",
-			"path": "Samples~/Core"
+			"displayName": "Sample Scene",
+			"description": "Sample Scene of Core Project",
+			"path": "Samples~/Sample Scene"
 		}
 
 

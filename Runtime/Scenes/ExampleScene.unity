@@ -499,6 +499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 663fd4d958ea981478cc1a1bea7fc4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentGameState: 0
+  _panelController: {fileID: 0}
+  _levelManager: {fileID: 0}
 --- !u!1001 &260185518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -997,6 +1000,10 @@ MonoBehaviour:
   fadeInDuration: 0
   fadeOutDuration: 0
   delay: 0
+  canvasGroup: {fileID: 0}
+  currentViewState: 0
+  _levelManager: {fileID: 0}
+  _currencyManager: {fileID: 0}
   _restartButton: {fileID: 1156358343}
 --- !u!1 &490715488
 GameObject:
@@ -1061,7 +1068,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696de22a3a5ebd34ab5d13c8e1488e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentLevelObj: {fileID: 0}
   _confetties: []
+  _currencyManager: {fileID: 0}
+  _projectReferenceData: {fileID: 0}
 --- !u!114 &791185515 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 101276471299211857, guid: 7d931393331379f479b794e9aff53fd1,
@@ -2065,6 +2075,10 @@ MonoBehaviour:
   fadeInDuration: 0
   fadeOutDuration: 0
   delay: 0
+  canvasGroup: {fileID: 0}
+  currentViewState: 0
+  _levelManager: {fileID: 0}
+  _currencyManager: {fileID: 0}
   _nextLevelButton: {fileID: 2000301778}
 --- !u!1 &1472742950
 GameObject:
@@ -2298,6 +2312,10 @@ MonoBehaviour:
   fadeInDuration: 0
   fadeOutDuration: 0
   delay: 0
+  canvasGroup: {fileID: 0}
+  currentViewState: 0
+  _levelManager: {fileID: 0}
+  _currencyManager: {fileID: 0}
   _levelText: {fileID: 1404722509}
   _currencyText: {fileID: 1608064769}
   _restartButton: {fileID: 1766500816}
@@ -2335,7 +2353,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1568662689}
   - component: {fileID: 1568662688}
-  - component: {fileID: 1568662687}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -2343,18 +2360,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1568662687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1568662686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92344d5c1ed9d244b9ae75b5baf9eff0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1568662688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2369,7 +2374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 1568662687}
+  - {fileID: 0}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:

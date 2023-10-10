@@ -1,7 +1,7 @@
 {
 	"name": "com.ruffgames.core",
 	"displayName": "RuffGames Core Package",
-	"version": "1.1.1",
+	"version": "1.0.0",
 	"unity": "2021.3",
 	"author": "Okan Topal",
 	"description": "Core Utilities for Unity",
@@ -20,9 +20,9 @@
 			"path": "Samples~/Epic Toon FX"
 		  },
 		{
-			"displayName": "Sample Scene",
-			"description": "Sample Scene of Core Project",
-			"path": "Samples~/Sample Scene"
+			"displayName": "Core Sample",
+			"description": "",
+			"path": "Samples~/Core Sample"
 		}
 
 

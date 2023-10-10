@@ -24,5 +24,4 @@ MonoBehaviour:
   LevelConfig:
     Levels:
     - {fileID: 6799612894888314442, guid: eb2a46dd4a1fd16468229ec7daaf65ba, type: 3}
-    - {fileID: 6799612894888314442, guid: f0b59134117d99b41ae4ba2b46fa1d4b, type: 3}
     RestartLevelIndex: 0

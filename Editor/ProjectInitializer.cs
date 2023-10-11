@@ -9,12 +9,12 @@ namespace com.ruffgames.core.Core.Editor
 {
     public class ProjectInitializer : OdinEditorWindow
     {
-        private const string CorePackagePath = "Packages/com.ruffgames.core/Dependencies";
+        private const string CorePackagePath = "Packages/com.ruffgames.core/Runtime/Dependencies";
 
         private static readonly List<string> PackagesToImport = new List<string>()
         {
             "Core",
-            "DoTween",
+            "DOTween",
             "Odin",
             "Epic",
         };

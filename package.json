@@ -5,15 +5,6 @@
 	"unity": "2021.3",
 	"author": "Okan Topal",
 	"description": "Core Utilities for Unity",
-	"scopedRegistries": [
-		{
-		  "name": "RuffGames Unity Packages",
-		  "url": "https://github.com/ruffgamestudio/com.ruffgames.core.git",
-		  "scopes": [
-			"com.ruffgames"
-		  ]
-		}
-	  ],
 	"dependencies": {
 		"com.unity.nuget.newtonsoft-json": "3.0.2"
 	},

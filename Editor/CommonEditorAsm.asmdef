@@ -1,4 +1,16 @@
 {
-	"name": "CommonEditorAsm",
-	"references":[ "GUID:baf90bb4c9c21994b89be33147beb8ab" ]
+    "name": "CommonEditorAsm",
+    "rootNamespace": "",
+    "references": [
+        "Sirenix.OdinInspector.Modules.UnityMathematics"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

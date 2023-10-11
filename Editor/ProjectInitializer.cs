@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Windows;
 
-namespace com.ruffgames.core.Core.Editor
+namespace com.ruffgames.core.Editor
 {
     public class ProjectInitializer : OdinEditorWindow
     {

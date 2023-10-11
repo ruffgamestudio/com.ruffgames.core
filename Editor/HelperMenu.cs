@@ -1,7 +1,7 @@
 using com.ruffgames.core.Runtime.Scripts.Storage;
 using UnityEditor;
 
-namespace com.ruffgames.core.Core.Editor
+namespace com.ruffgames.core.Editor
 {
 #if UNITY_EDITOR
     public class HelperMenu

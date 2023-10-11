@@ -20,14 +20,5 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ruffgamestudio/com.ruffgames.core.git"
-	},
-	"enableLockFile": true,
-	"samples": [
-		{
-			"displayName": "Epic Toon FX",
-			"description": "Epic Toon Package",
-			"path": "Samples~/Epic Toon FX"
-		  }
-
-	]	
+	}
 }

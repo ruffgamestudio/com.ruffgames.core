@@ -11,17 +11,18 @@ namespace com.ruffgames.core.Editor
 {
     public class ProjectInitializer : OdinEditorWindow
     {
-        [SerializeField] public Texture aTexture;
-
         private const string CorePackagePath = "Packages/com.ruffgames.core/Runtime/Dependencies";
         private const string CompanyName = "RuffGames";
         [ShowInInspector,ReadOnly] private string ProductName;
         private static readonly List<string> PackagesToImport = new List<string>()
         {
-            "Common",
+            "common",
             "DOTween",
             "Odin",
             "Epic",
+            "Nice Vibrations",
+            "Tru Shadow",
+            "Extenject"
         };
         
         [MenuItem("Ruff Games/Project Initializer")]
@@ -35,7 +36,7 @@ namespace com.ruffgames.core.Editor
             Texture banner = (Texture)AssetDatabase.LoadAssetAtPath("Packages/com.ruffgames.core/Runtime/UI/logo.png", typeof(Texture));
             float width = 400;
             float height = 400;
-            GUI.DrawTexture (new Rect ((Screen.width / 2) - (width/2), (Screen.height / 2) - (height/2), width, height), aTexture,ScaleMode.ScaleToFit,true);
+            GUI.DrawTexture (new Rect ((Screen.width / 2) - (width/2), (Screen.height / 2) - (height/2), width, height), banner,ScaleMode.ScaleToFit,true);
             
         }
         

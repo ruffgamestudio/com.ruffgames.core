@@ -11,15 +11,16 @@ namespace com.ruffgames.core.Editor
     public class ProjectInitializer : OdinEditorWindow
     {
         private const string CorePackagePath = "Packages/com.ruffgames.core/Runtime/Dependencies";
+        private const string ProjectContextPath = "Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/RenameThisResources";
         private const string CompanyName = "RuffGames";
         [ShowInInspector,ReadOnly] private string ProductName;
         private static readonly List<string> PackagesToImport = new List<string>()
         {
             "DOTween",
-            "Epic",
+            "Epic Toon",
             "Nice Vibrations",
             "Tru Shadow",
-            "Extenject"
+            "common"
         };
         
         [MenuItem("Ruff Games/Project Initializer")]
@@ -79,7 +80,10 @@ namespace com.ruffgames.core.Editor
             
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            
+
+            var projectContext = Resources.Load(ProjectContextPath) as GameObject;
+            PrefabUtility.SaveAsPrefabAsset(projectContext, "Assets/Resources/");
+
         }
 
         private string GetCleanProductName(string productName)

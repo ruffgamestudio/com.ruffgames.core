@@ -14,7 +14,7 @@ namespace com.ruffgames.core.Editor
         [SerializeField] public Texture aTexture;
 
         private const string CorePackagePath = "Packages/com.ruffgames.core/Runtime/Dependencies";
-        [ShowInInspector,ReadOnly] private const string CompanyName = "RuffGames";
+        private const string CompanyName = "RuffGames";
         [ShowInInspector,ReadOnly] private string ProductName;
         private static readonly List<string> PackagesToImport = new List<string>()
         {
@@ -29,8 +29,17 @@ namespace com.ruffgames.core.Editor
         {
             GetWindow<ProjectInitializer>().Show();
         }
+        protected override void OnGUI()
+        {
+            base.OnGUI();
+            Texture banner = (Texture)AssetDatabase.LoadAssetAtPath("Packages/com.ruffgames.core/Runtime/UI/logo.png", typeof(Texture));
+            float width = 400;
+            float height = 400;
+            GUI.DrawTexture (new Rect ((Screen.width / 2) - (width/2), (Screen.height / 2) - (height/2), width, height), aTexture,ScaleMode.ScaleToFit,true);
+            
+        }
         
-       
+        [Title("Ruff Games Project Initializer", titleAlignment: TitleAlignments.Centered)]
         [Button(ButtonSizes.Large)]
         public void SetupPlayerSettings()
         {
@@ -78,6 +87,7 @@ namespace com.ruffgames.core.Editor
         private string GetCleanProductName(string productName)
         {
             return Regex.Replace(productName, @"[^0-9a-zA-Z]+", "").ToLower().Trim();
-        }    
+        }
+
     }
 }

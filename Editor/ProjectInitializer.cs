@@ -15,9 +15,7 @@ namespace com.ruffgames.core.Editor
         [ShowInInspector,ReadOnly] private string ProductName;
         private static readonly List<string> PackagesToImport = new List<string>()
         {
-            "common",
             "DOTween",
-            "Odin",
             "Epic",
             "Nice Vibrations",
             "Tru Shadow",

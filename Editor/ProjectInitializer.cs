@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
+using Sirenix.OdinInspector.Editor.Internal;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Windows;
@@ -17,7 +18,6 @@ namespace com.ruffgames.core.Editor
         private static readonly List<string> PackagesToImport = new List<string>()
         {
             "DOTween",
-            "Odin",
             "commonassets",
             "Epic Toon",
             "POLYGON - Particle",
@@ -44,6 +44,8 @@ namespace com.ruffgames.core.Editor
         [Button(ButtonSizes.Large)]
         public void SetupPlayerSettings()
         {
+            EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
+            
             ProductName = GetCleanProductName(Application.productName);
             var appIdentifier = $"com.{CompanyName.ToLower()}.{ProductName}".ToLower().Trim();
             
@@ -54,6 +56,16 @@ namespace com.ruffgames.core.Editor
             PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
             PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android,ScriptingImplementation.IL2CPP);
             PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
+
+            var playerOptions = new BuildPlayerOptions()
+            {
+                target = BuildTarget.Android,
+                subtarget = (int)StandaloneBuildSubtarget.Player,
+                targetGroup = BuildPipeline.GetBuildTargetGroup(BuildTarget.Android),
+                options = BuildOptions.CompressWithLz4HC,
+            };
+            
+            BuildPipeline.BuildPlayer(playerOptions);
         }
 
         [Button(ButtonSizes.Large)]
@@ -85,6 +97,27 @@ namespace com.ruffgames.core.Editor
 
             var projectContext = Resources.Load(ProjectContextPath) as GameObject;
             PrefabUtility.SaveAsPrefabAsset(projectContext, "Assets/Resources/");
+
+        }
+        [Button(ButtonSizes.Large)]
+        public void AndroidBuild()
+        {
+            EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
+            
+            var outputPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
+            Debug.LogError(outputPath);
+            return;
+            
+            var playerOptions = new BuildPlayerOptions()
+            {
+                target = BuildTarget.Android,
+                subtarget = (int)StandaloneBuildSubtarget.Player,
+                targetGroup = BuildPipeline.GetBuildTargetGroup(BuildTarget.Android),
+                options = BuildOptions.CompressWithLz4HC,
+                locationPathName = outputPath
+            };
+            
+            BuildPipeline.BuildPlayer(playerOptions);
 
         }
 

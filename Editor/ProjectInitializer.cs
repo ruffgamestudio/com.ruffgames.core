@@ -105,9 +105,7 @@ namespace com.ruffgames.core.Editor
             EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
             
             var outputPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
-            Debug.LogError(outputPath);
-            return;
-            
+
             var playerOptions = new BuildPlayerOptions()
             {
                 target = BuildTarget.Android,

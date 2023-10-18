@@ -17,7 +17,7 @@ namespace com.ruffgames.core.Editor
         private static readonly List<string> PackagesToImport = new List<string>()
         {
             "DOTween",
-            "ruffgamesCore",
+            "commonassets",
             "Epic Toon",
             "POLYGON - Particle",
             "Tru Shadow",

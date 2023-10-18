@@ -21,9 +21,8 @@ namespace com.ruffgames.core.Editor
             "Epic Toon",
             "Extenject",
             "Nice Vibrations",
-            "Tru Shadow",
-            "Odin"
-           
+            "Tru Shadow"
+
         };
         
         [MenuItem("Ruff Games/Project Initializer")]

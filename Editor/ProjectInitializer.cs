@@ -16,11 +16,14 @@ namespace com.ruffgames.core.Editor
         [ShowInInspector,ReadOnly] private string ProductName;
         private static readonly List<string> PackagesToImport = new List<string>()
         {
+            "common",
             "DOTween",
             "Epic Toon",
+            "Extenject",
             "Nice Vibrations",
             "Tru Shadow",
-            "common"
+            "Odin"
+           
         };
         
         [MenuItem("Ruff Games/Project Initializer")]
@@ -32,6 +35,7 @@ namespace com.ruffgames.core.Editor
         {
             base.OnGUI();
             Texture banner = (Texture)AssetDatabase.LoadAssetAtPath("Packages/com.ruffgames.core/Runtime/UI/logo.png", typeof(Texture));
+            if (banner is null) return;
             float width = 400;
             float height = 400;
             GUI.DrawTexture (new Rect ((Screen.width / 2) - (width/2), (Screen.height / 2) - (height/2), width, height), banner,ScaleMode.ScaleToFit,true);

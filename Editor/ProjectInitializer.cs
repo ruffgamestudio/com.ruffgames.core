@@ -19,7 +19,8 @@ namespace com.ruffgames.core.Editor
             "DOTween",
             "ruffgamesCore",
             "Epic Toon",
-            "Tru Shadow"
+            "POLYGON - Particle",
+            "Tru Shadow",
         };
         
         [MenuItem("Ruff Games/Project Initializer")]

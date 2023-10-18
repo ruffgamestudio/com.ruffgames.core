@@ -17,12 +17,9 @@ namespace com.ruffgames.core.Editor
         private static readonly List<string> PackagesToImport = new List<string>()
         {
             "common",
-            "DOTween",
             "Epic Toon",
-            "Extenject",
             "Nice Vibrations",
             "Tru Shadow"
-
         };
         
         [MenuItem("Ruff Games/Project Initializer")]

@@ -26,9 +26,9 @@ namespace com.ruffgames.core.Editor
 	}
 	
 	[InitializeOnLoad]
-	public class ScenePrefResetButton
+	public class AndroidBuildButton
 	{
-		static ScenePrefResetButton()
+		static AndroidBuildButton()
 		{
 			ToolbarExtender.LeftToolbarGUI.Add(OnToolbarGUI);
 		}

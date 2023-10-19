@@ -2,7 +2,7 @@
     "name": "CommonEditorAsm",
     "rootNamespace": "",
     "references": [
-        "Sirenix.OdinInspector.Modules.UnityMathematics"
+        "CoreRuntimeAsm"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

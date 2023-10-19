@@ -1,26 +1,26 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor;
-using Sirenix.OdinInspector.Editor.Internal;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Windows;
 
 namespace com.ruffgames.core.Editor
 {
-    public class ProjectInitializer : OdinEditorWindow
+    public class ProjectInitializer : EditorWindow
     {
         private const string CorePackagePath = "Packages/com.ruffgames.core/Runtime/Dependencies";
         private const string ProjectContextPath = "Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/RenameThisResources";
         private const string CompanyName = "RuffGames";
-        [ShowInInspector,ReadOnly] private string ProductName;
+        private string ProductName;
         private static readonly List<string> PackagesToImport = new List<string>()
         {
             "DOTween",
+            "Odin",
+            "Nice Vibrations",
             "commonassets",
             "Epic Toon",
             "POLYGON - Particle",
+            "Extenject",
             "Tru Shadow",
         };
         
@@ -29,20 +29,29 @@ namespace com.ruffgames.core.Editor
         {
             GetWindow<ProjectInitializer>().Show();
         }
-        protected override void OnGUI()
+        private void OnGUI()
         {
-            base.OnGUI();
             Texture banner = (Texture)AssetDatabase.LoadAssetAtPath("Packages/com.ruffgames.core/Runtime/UI/logo.png", typeof(Texture));
             if (banner is null) return;
             float width = 400;
             float height = 400;
             GUI.DrawTexture (new Rect ((Screen.width / 2) - (width/2), (Screen.height / 2) - (height/2), width, height), banner,ScaleMode.ScaleToFit,true);
+
+            if (GUILayout.Button("Setup PlayerSettings"))
+            {
+                SetupPlayerSettings();
+            }
+            if (GUILayout.Button("ImportPackages"))
+            {
+                ImportPackages();
+            }
+            if (GUILayout.Button("Android Build"))
+            {
+                ImportPackages();
+            }
             
         }
-        
-        [Title("Ruff Games Project Initializer", titleAlignment: TitleAlignments.Centered)]
-        [Button(ButtonSizes.Large)]
-        public void SetupPlayerSettings()
+        private void SetupPlayerSettings()
         {
             EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
             
@@ -67,9 +76,8 @@ namespace com.ruffgames.core.Editor
             
             BuildPipeline.BuildPlayer(playerOptions);
         }
-
-        [Button(ButtonSizes.Large)]
-        public void ImportPackages()
+        
+        private void ImportPackages()
         {
             if (!Directory.Exists(CorePackagePath))
             {
@@ -99,7 +107,7 @@ namespace com.ruffgames.core.Editor
             PrefabUtility.SaveAsPrefabAsset(projectContext, "Assets/Resources/");
 
         }
-        [Button(ButtonSizes.Large)]
+      
         public void AndroidBuild()
         {
             EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);

@@ -21,7 +21,7 @@ namespace com.ruffgames.core.Editor
             "POLYGON - Particle",
             "Extenject",
             "True Shadow",
-            "commonassets",
+            "ruffgamescore",
         };
         
         [MenuItem("Ruff Games/Project Initializer")]

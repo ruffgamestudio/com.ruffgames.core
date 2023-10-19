@@ -21,7 +21,6 @@ namespace com.ruffgames.core.Editor
             "POLYGON - Particle",
             "Extenject",
             "True Shadow",
-            "Rainbow",
             "commonassets",
         };
         
@@ -32,25 +31,26 @@ namespace com.ruffgames.core.Editor
         }
         private void OnGUI()
         {
-            Texture banner = (Texture)AssetDatabase.LoadAssetAtPath("Packages/com.ruffgames.core/Runtime/UI/logo.png", typeof(Texture));
-            if (banner is null) return;
-            float width = 400;
-            float height = 400;
-            GUI.DrawTexture (new Rect ((Screen.width / 2) - (width/2), (Screen.height / 2) - (height/2), width, height), banner,ScaleMode.ScaleToFit,true);
-
-            if (GUILayout.Button("Setup PlayerSettings"))
+            DrawLogo();
+            
+            if (GUILayout.Button("Setup PlayerSettings", GUILayout.Height(80)))
             {
                 SetupPlayerSettings();
             }
-            if (GUILayout.Button("ImportPackages"))
+            if (GUILayout.Button("ImportPackages", GUILayout.Height(80)))
             {
                 ImportPackages();
             }
-            if (GUILayout.Button("Android Build"))
-            {
-                ImportPackages();
-            }
-            
+        }
+        
+
+        private void DrawLogo()
+        {
+            var banner = (Texture)AssetDatabase.LoadAssetAtPath("Packages/com.ruffgames.core/Runtime/UI/logo.png", typeof(Texture));
+            if (banner is null) return;
+            var width = 400;
+            var height = 400;
+            GUI.DrawTexture (new Rect ((Screen.width / 2) - (width/2), (Screen.height / 2) - (height/2), width, height), banner,ScaleMode.ScaleToFit,true);
         }
         private void SetupPlayerSettings()
         {
@@ -66,16 +66,7 @@ namespace com.ruffgames.core.Editor
             PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
             PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android,ScriptingImplementation.IL2CPP);
             PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
-
-            var playerOptions = new BuildPlayerOptions()
-            {
-                target = BuildTarget.Android,
-                subtarget = (int)StandaloneBuildSubtarget.Player,
-                targetGroup = BuildPipeline.GetBuildTargetGroup(BuildTarget.Android),
-                options = BuildOptions.CompressWithLz4HC,
-            };
             
-            BuildPipeline.BuildPlayer(playerOptions);
         }
         
         private void ImportPackages()
@@ -108,25 +99,7 @@ namespace com.ruffgames.core.Editor
             PrefabUtility.SaveAsPrefabAsset(projectContext, "Assets/Resources/");
 
         }
-      
-        public void AndroidBuild()
-        {
-            EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
-            
-            var outputPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
-
-            var playerOptions = new BuildPlayerOptions()
-            {
-                target = BuildTarget.Android,
-                subtarget = (int)StandaloneBuildSubtarget.Player,
-                targetGroup = BuildPipeline.GetBuildTargetGroup(BuildTarget.Android),
-                options = BuildOptions.CompressWithLz4HC,
-                locationPathName = outputPath
-            };
-            
-            BuildPipeline.BuildPlayer(playerOptions);
-
-        }
+        
 
         private string GetCleanProductName(string productName)
         {

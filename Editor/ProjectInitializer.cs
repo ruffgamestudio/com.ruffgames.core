@@ -17,11 +17,12 @@ namespace com.ruffgames.core.Editor
             "DOTween",
             "Odin",
             "Nice Vibrations",
-            "commonassets",
             "Epic Toon",
             "POLYGON - Particle",
             "Extenject",
-            "Tru Shadow",
+            "True Shadow",
+            "Rainbow",
+            "commonassets",
         };
         
         [MenuItem("Ruff Games/Project Initializer")]

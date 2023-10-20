@@ -1,3 +1,5 @@
+#if  UNITY_EDITOR
+
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEditor;
@@ -105,6 +107,6 @@ namespace com.ruffgames.core.Editor
         {
             return Regex.Replace(productName, @"[^0-9a-zA-Z]+", "").ToLower().Trim();
         }
-
     }
 }
+#endif

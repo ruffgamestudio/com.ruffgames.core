@@ -69,6 +69,9 @@ namespace com.ruffgames.core.Editor
             PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android,ScriptingImplementation.IL2CPP);
             PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
             
+            var aac = AndroidArchitecture.ARM64 | AndroidArchitecture.ARMv7;
+            PlayerSettings.Android.targetArchitectures = aac;
+            
         }
         
         private void ImportPackages()

@@ -42,23 +42,16 @@ namespace com.ruffgames.core.Editor
 				APKBuild();
 			}
 		}
-		
 		private static void APKBuild()
 		{
 			EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
-            
-			var outputPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
 
-			var playerOptions = new BuildPlayerOptions()
-			{
-				target = BuildTarget.Android,
-				subtarget = (int)StandaloneBuildSubtarget.Player,
-				targetGroup = BuildPipeline.GetBuildTargetGroup(BuildTarget.Android),
-				options = BuildOptions.CompressWithLz4HC,
-				locationPathName = outputPath
-			};
-			BuildPipeline.BuildPlayer(playerOptions);
+			var buildPlayerOptions = BuildPlayerWindow.DefaultBuildMethods.GetBuildPlayerOptions(new BuildPlayerOptions());
+			buildPlayerOptions.options = BuildOptions.CompressWithLz4HC;
+
+			BuildPipeline.BuildPlayer(buildPlayerOptions);
 		}
+
 	}
 
 }

@@ -12,6 +12,8 @@ namespace com.ruffgames.core.Editor
     {
         private const string CorePackagePath = "Packages/com.ruffgames.core/Runtime/Dependencies";
         private const string ProjectContextPath = "Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/RenameThisResources";
+     
+
         private const string CompanyName = "RuffGames";
         private string ProductName;
         private static readonly List<string> PackagesToImport = new List<string>()
@@ -42,6 +44,10 @@ namespace com.ruffgames.core.Editor
             if (GUILayout.Button("ImportPackages", GUILayout.Height(80)))
             {
                 ImportPackages();
+            }
+            if (GUILayout.Button("ImportSDK", GUILayout.Height(80)))
+            {
+                ImportSDK();
             }
         }
         
@@ -104,7 +110,34 @@ namespace com.ruffgames.core.Editor
             PrefabUtility.SaveAsPrefabAsset(projectContext, "Assets/Resources/");
 
         }
-        
+
+        private void ImportSDK()
+        {
+            if (!Directory.Exists(CorePackagePath))
+            {
+                EditorUtility.DisplayDialog("Error", "Directory doesn't exist. Are you trying to run this script in Packages project?", "ok");
+                return;
+            }
+
+            var files= System.IO.Directory.GetFiles(CorePackagePath);
+
+
+            foreach (var file in files)
+            {
+               
+                    if (file.Contains("SDK"))
+                    {
+                        Debug.Log("Importing package.." + file);
+                        AssetDatabase.ImportPackage(file, false);
+                    }
+               
+            }
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+ 
+        }
 
         private string GetCleanProductName(string productName)
         {

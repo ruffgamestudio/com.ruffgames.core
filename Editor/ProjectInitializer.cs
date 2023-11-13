@@ -27,7 +27,7 @@ namespace com.ruffgames.core.Editor
             "True Shadow",
             "ruffgamescore",
             "GUI PRO Kit",
-            "UI Particle",
+            "UI_Particle_Image",
         };
         
         [MenuItem("Ruff Games/Project Initializer")]

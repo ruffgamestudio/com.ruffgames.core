@@ -26,6 +26,8 @@ namespace com.ruffgames.core.Editor
             "Extenject",
             "True Shadow",
             "ruffgamescore",
+            "GUI PRO Kit",
+            "UI Particle",
         };
         
         [MenuItem("Ruff Games/Project Initializer")]

@@ -28,6 +28,7 @@ namespace com.ruffgames.core.Editor
             "ruffgamescore",
             "GUI PRO Kit",
             "UI_Particle_Image",
+            "SRDebugger",
         };
         
         [MenuItem("Ruff Games/Project Initializer")]
